@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: 'Fredoka', sans-serif;
+    --font-sans: 'Nunito', sans-serif;
+
+    /* Base Colors - Playful and Accessible */
+    --background: 210 33% 98%;
+    --foreground: 222 47% 15%;
+    
+    /* Playful Primary - Vibrant Blue */
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    
+    /* Secondary - Sunny Yellow for high contrast */
+    --secondary: 45 93% 55%;
+    --secondary-foreground: 24 10% 10%;
+    
+    --muted: 210 40% 90%;
+    --muted-foreground: 215 16% 40%;
+    
+    /* Accent - Bright Green for positive actions */
+    --accent: 142 71% 45%;
+    --accent-foreground: 144 100% 11%;
+    
+    /* Destructive - Soft Red for distress/refusal */
+    --destructive: 346 84% 60%;
+    --destructive-foreground: 355 100% 97%;
+    
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 221 83% 53%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 15%;
+    --card-border: 214 32% 91%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 45 93% 50%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 142 71% 40%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 346 80% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 224 71% 4%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --card-border: 217 32% 17%;
+  }
+
+  /* Theme: Calm Mode (can be toggled by adding .theme-calm to a wrapper) */
+  .theme-calm {
+    --background: 190 30% 96%;
+    --primary: 185 40% 50%;
+    --secondary: 210 30% 70%;
+    --accent: 150 30% 55%;
+    --destructive: 350 40% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+/* Custom Utilities for Tablet UI */
+@layer utilities {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-xl shadow-black/5;
+  }
+  .dark .glass-card {
+    @apply bg-black/40 border-white/10 shadow-black/20;
+  }
+  
+  .tablet-button-press {
+    @apply transition-transform active:scale-95 duration-100;
+  }
+  
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  }
+  
+  .dark .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+}

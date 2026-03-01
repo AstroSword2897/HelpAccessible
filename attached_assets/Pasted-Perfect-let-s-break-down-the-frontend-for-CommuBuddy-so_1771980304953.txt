@@ -1,0 +1,100 @@
+Perfect — let’s break down the **frontend** for **CommuBuddy** so it’s clear what the child and caregiver see, how it’s structured, and what technologies you’d use. I’ll get very specific.
+
+---
+
+# **CommuBuddy Frontend Architecture**
+
+---
+
+## **1. Overview**
+
+The frontend is split into **two main interfaces**:
+
+1. **Child Tablet UI** – for the autistic child to communicate, play ABA games, and receive feedback.
+2. **Caregiver Dashboard** – for configuring prompts, monitoring progress, and personalizing the experience.
+
+---
+
+## **2. Child Tablet Frontend**
+
+### **A. UI Components**
+
+| Component                 | Description                                                                             |
+| ------------------------- | --------------------------------------------------------------------------------------- |
+| **Home Screen**           | 4 main buttons: Needs, Distress, Refusal, Help; always visible; optional avatar & theme |
+| **Prompt Screen**         | ABA trial prompts: “Request a toy”, “Greet a peer”                                      |
+| **Mini-Games**            | Matching emotions, turn-taking, requesting games                                        |
+| **Reward Popups**         | Stickers, badges, animations when child succeeds                                        |
+| **Navigation Bar**        | Optional simple nav: Home, Games, Progress                                              |
+| **Accessibility Options** | Button size, color contrast, sound/vibration toggles                                    |
+
+### **B. Frontend Logic**
+
+* Handles button taps and gestures
+* Displays adaptive prompts from ABA Engine
+* Shows animations, sounds, and visual feedback immediately
+* Stores session responses locally for offline use
+* Syncs with cloud when internet is available
+
+### **C. Technologies**
+
+* **Framework:** React Native or Flutter (cross-platform, touch-friendly)
+* **State Management:** Redux / Provider / Riverpod for app state
+* **Animations:** Lottie or Flutter Animations for rewards and feedback
+* **Offline Storage:** SQLite / Hive / SharedPreferences for session logs
+
+---
+
+## **3. Caregiver Dashboard Frontend**
+
+### **A. UI Components**
+
+| Component                    | Description                                                          |
+| ---------------------------- | -------------------------------------------------------------------- |
+| **Home / Overview**          | Session logs, recent performance, child’s streaks                    |
+| **Configuration Module**     | Choose interface type, prompt selection, session duration, ABA goals |
+| **Survey / Personalization** | Onboarding survey to tailor the tablet experience                    |
+| **Analytics Module**         | Graphs for accuracy, response time, and progress over time           |
+| **Notification Panel**       | Alerts for distress signals or milestone achievements                |
+| **Prompt Library**           | Add/edit ABA prompts, link to mini-games, manage rewards             |
+
+### **B. Frontend Logic**
+
+* Fetches data from cloud backend
+* Pushes configuration changes to child tablet
+* Displays performance analytics dynamically (charts & tables)
+* Handles login/authentication and caregiver role management
+
+### **C. Technologies**
+
+* **Web Framework:** React.js (or Vue.js)
+* **UI Library:** Material-UI / Tailwind for clean, responsive interface
+* **Charts / Analytics:** Chart.js / Recharts for performance visualization
+* **State Management:** Redux / Context API
+* **Authentication:** Firebase Auth / OAuth2
+
+---
+
+## **4. Data Flow (Frontend Perspective)**
+
+1. **Child interacts** → frontend sends response to local ABA Engine
+2. ABA Engine → sends **feedback** to frontend (reward animation, next prompt)
+3. **Frontend logs session** → stored locally if offline
+4. **Sync** → frontend uploads session data to cloud for caregiver
+5. Caregiver dashboard fetches **latest data** → displays analytics and updates configuration
+6. **Caregiver changes settings** → frontend pushes config to tablet → updates child interface
+
+---
+
+## **5. UI/UX Principles**
+
+* **Simplicity:** large buttons, minimal distractions
+* **Consistency:** same color coding for Needs / Distress / Refusal / Help
+* **Engagement:** animations, avatars, gamified rewards
+* **Accessibility:** adjustable button size, sound/vibration toggles, color themes
+
+---
+
+If you want, I can **create a detailed wireframe map for the frontend**, showing **every child screen, ABA prompt flow, mini-game layout, and caregiver dashboard** — basically a blueprint ready to code in React Native or Flutter.
+
+Do you want me to do that next?

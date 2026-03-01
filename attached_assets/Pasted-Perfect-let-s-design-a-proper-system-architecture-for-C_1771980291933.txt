@@ -1,0 +1,166 @@
+Perfect — let’s design a **proper system architecture** for **CommuBuddy**, showing exactly how the **child tablet, caregiver dashboard, ABA logic, and data storage** interact. I’ll make it **technical, detailed, and implementation-ready**.
+
+---
+
+# **CommuBuddy System Architecture**
+
+---
+
+## **1. Overview**
+
+**Goal:**
+Provide a tablet-based communication tool that accelerates ABA therapy with **adaptive prompts, engagement games, caregiver control, and data tracking**.
+
+**Components:**
+
+1. Child Tablet (front-end + local logic)
+2. Caregiver Dashboard (web or tablet interface)
+3. ABA Engine (adaptive logic & reinforcement)
+4. Data Storage (cloud + local cache)
+5. Notification & Reward System
+
+---
+
+## **2. Component Breakdown**
+
+### **A. Child Tablet**
+
+* **UI Layer:**
+
+  * Needs / Distress / Refusal / Help buttons
+  * ABA Prompt screens
+  * Mini-Games (matching, requesting, turn-taking)
+  * Rewards & avatars
+
+* **Local Logic Layer:**
+
+  * Handles **input events** (taps, button selections)
+  * Runs **immediate feedback** (animation, sounds, vibration)
+  * Logs responses locally for offline use
+  * Adaptive difficulty adjustments based on recent performance
+
+* **Connectivity:**
+
+  * Syncs session logs and progress with cloud storage when online
+  * Receives new prompt packs or configuration from caregiver dashboard
+
+---
+
+### **B. Caregiver Dashboard**
+
+* **Web or Tablet Application**
+
+* **Modules:**
+
+  1. **Configuration Module** – choose interface type, complexity, prompts, session length, sensory preferences
+  2. **Progress Module** – shows session logs, success rates, response times
+  3. **Survey & Personalization** – tailors child interface and prompt library
+  4. **Notification System** – alerts caregiver of distress or milestones
+
+* **Communication:**
+
+  * Uses secure API to sync configuration and receive child performance data
+
+---
+
+### **C. ABA Engine**
+
+* **Rules & Prompts Module:**
+
+  * Stores ABA trials, prompts, reinforcement rules
+  * Determines correct/incorrect responses
+* **Adaptive Logic Module:**
+
+  * Adjusts difficulty automatically
+  * Recommends next ABA prompt based on recent performance
+* **Reward Engine:**
+
+  * Decides points, stickers, or mini-game unlocks
+
+---
+
+### **D. Data Storage**
+
+* **Local Storage (Tablet):**
+
+  * Temporary caching of session logs and ABA progress
+  * Offline use when no internet
+
+* **Cloud Storage (Firebase / AWS / Custom Backend):**
+
+  * Stores caregiver configurations, child performance history, reward progress
+  * Provides analytics for caregiver dashboard
+  * Ensures secure, encrypted storage
+
+---
+
+### **E. Notification & Feedback System**
+
+* Sends:
+
+  * Distress alerts to caregiver
+  * Milestone notifications (e.g., first successful prompt)
+* Triggers tablet feedback:
+
+  * Animations, sound, vibration
+
+---
+
+## **3. Data Flow**
+
+1. **Child interacts with tablet → Local logic captures response → ABA Engine evaluates → Reward system triggers feedback → Session data stored locally**
+2. **When connected → Tablet syncs session logs to cloud → Caregiver dashboard fetches data → Dashboard updates analytics and adjusts configuration**
+3. **Caregiver updates settings → Config pushed to tablet → ABA engine applies new rules/prompts**
+
+---
+
+## **4. Technology Stack (Implementation-Ready)**
+
+| Layer               | Suggested Tech                            |
+| ------------------- | ----------------------------------------- |
+| Child Tablet UI     | React Native / Flutter                    |
+| ABA Engine          | Local JS/Python module, embedded in app   |
+| Caregiver Dashboard | Web app: React + Node.js / Django backend |
+| Cloud Storage       | Firebase Firestore or AWS DynamoDB        |
+| Authentication      | OAuth2 / Firebase Auth (caregiver login)  |
+| Reward System       | Built into tablet app, synced with cloud  |
+| Notifications       | Push notifications via Firebase / AWS SNS |
+| Analytics           | Backend Python scripts / Node.js service  |
+
+---
+
+## **5. Architecture Diagram (Textual)**
+
+```
+  +--------------------+       +------------------------+
+  |  Caregiver Dashboard| <---> |  Cloud Storage & API  |
+  |  (Web/App)          |       | - Configuration       |
+  | - Configure prompts  |       | - Session Logs        |
+  | - Track progress     |       | - Analytics           |
+  +--------------------+       +------------------------+
+             ^                             ^
+             | Push/Fetch                  | Sync
+             |                             |
+  +--------------------+       +------------------------+
+  |  Child Tablet      | <---> | ABA Engine & Reward    |
+  | - UI: Buttons,     |       | Logic                  |
+  |   Games, Avatar    |       | - Adaptive Difficulty  |
+  | - Local Logging    |       | - Reinforcement        |
+  | - Multi-Sensory FB |       +------------------------+
+  +--------------------+
+```
+
+---
+
+## **6. Key Considerations**
+
+* **Offline-first:** tablet should function fully without internet
+* **Data privacy:** all child data encrypted at rest and in transit
+* **Scalability:** cloud system supports multiple children and caregivers
+* **Extensibility:** easy to add new ABA prompts, mini-games, and reward types
+
+---
+
+If you want, I can **draw a visual system diagram** with boxes, arrows, and modules that you could hand to a developer to start coding **CommuBuddy** immediately.
+
+Do you want me to do that next?

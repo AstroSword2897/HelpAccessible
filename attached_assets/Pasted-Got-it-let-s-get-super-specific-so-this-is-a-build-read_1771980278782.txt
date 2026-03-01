@@ -1,0 +1,149 @@
+Got it — let’s get **super specific** so this is a **build-ready product concept**, not just ideas. I’ll break it down by **exact screens, features, and mechanics** for both child and caregiver, with engagement and ABA acceleration in mind.
+
+---
+
+# **Product: CommuBuddy – Communication Tablet for ABA Therapy**
+
+---
+
+## **1. Hardware**
+
+* **Tablet:** 10-inch, durable, kid-proof casing
+* **Screen:** Capacitive touchscreen, large buttons, high contrast
+* **Speakers & Vibration Motor:** for multi-sensory feedback
+* **Optional Stylus:** for fine motor skill practice
+* **Battery & Charging:** long-lasting battery (8+ hrs), magnetic charger
+
+---
+
+## **2. Child-Facing Features**
+
+### **A. Home Screen**
+
+* **4 Main Buttons (always visible):**
+
+  1. Needs (food, water, bathroom)
+  2. Distress (sad, frustrated, anxious)
+  3. Refusal (no, stop, wait)
+  4. Help (request caregiver assistance)
+
+* **Custom Avatar**: child picks avatar to increase engagement
+
+* **Background Themes**: calming or playful themes
+
+---
+
+### **B. ABA Prompt Mode**
+
+* **Prompts for Daily Therapy Practice:**
+
+  * Greet someone → child selects appropriate response
+  * Request a toy → child practices asking
+  * Sharing activity → child practices turn-taking
+* **Immediate Feedback:**
+
+  * Correct → animation + sound + virtual sticker
+  * Incorrect → gentle red highlight + optional hint
+
+---
+
+### **C. Mini-Games**
+
+* Linked to ABA skills:
+
+  1. **Matching Faces:** match emotion symbols to situations
+  2. **Request Game:** “Ask for the toy” → reward when done correctly
+  3. **Turn-Taking Game:** take turns with the tablet or caregiver
+* **Progress Tracking:** games log performance to caregiver dashboard
+
+---
+
+### **D. Adaptive Learning**
+
+* Tablet tracks:
+
+  * Accuracy of responses
+  * Response time
+  * Frequency of help requests
+* **Automatic adjustment:**
+
+  * If child succeeds >80%, tablet shows slightly more complex prompts
+  * If child struggles <50%, simplify options
+
+---
+
+## **3. Caregiver-Facing Features**
+
+### **A. Dashboard**
+
+* **Customize Interface:**
+
+  * Symbols only / text only / hybrid
+  * Complexity level (1–5)
+  * Screen time per session
+* **Session Control:** start/stop ABA session
+* **Prompt Library:** choose which skills to practice each day
+
+### **B. Personalization Survey**
+
+* On first use, caregiver completes survey:
+
+  * Child’s age & skill level
+  * Preferred communication type
+  * Sensory preferences (sound, vibration, color)
+  * ABA goals (social, communication, self-expression)
+
+### **C. Analytics**
+
+* Session logs: correct/incorrect responses, response time
+* Daily/weekly progress reports
+* Graphs showing improvement trends over time
+* Suggestions for next session based on child’s performance
+
+---
+
+## **4. Safety & Accessibility**
+
+* Distress button **always visible**
+* Emergency override (no prompts block distress)
+* Screen time and session length configurable
+* Child can **pause or exit** at any time
+
+---
+
+## **5. Engagement Mechanics**
+
+* **Reward System:**
+
+  * Stickers, badges, points, unlocking avatar accessories
+* **Gamification:**
+
+  * Correct responses → animation and sound feedback
+  * Streaks → encourages daily use
+* **Multi-Sensory Feedback:**
+
+  * Light flashes, vibrations, sounds, animations
+  * Adjustable to avoid overstimulation
+
+---
+
+## **6. MVP Plan**
+
+| Phase                       | Features                                                                                       |
+| --------------------------- | ---------------------------------------------------------------------------------------------- |
+| **1: Core Communication**   | Needs, distress, refusal, help buttons; ABA prompt mode; caregiver dashboard to select prompts |
+| **2: Engagement & Rewards** | Mini-games, stickers, points, avatar customization, adaptive difficulty                        |
+| **3: Analytics & AI**       | Automatic skill-level adjustment, performance graphs, ABA goal suggestions                     |
+
+---
+
+If you want, I can **create a full Figma wireframe** showing:
+
+1. **Child Home Screen**
+2. **ABA Prompt Screens**
+3. **Mini-Game Screens**
+4. **Caregiver Dashboard & Analytics**
+
+This would give a **ready-to-code prototype for Replit or actual tablet software**.
+
+Do you want me to do that next?
