@@ -18,7 +18,7 @@ export default function Logs() {
       <div className="mb-8 flex justify-between items-end">
         <div>
           <h1 className="text-3xl font-display font-bold text-foreground">Activity Logs</h1>
-          <p className="text-muted-foreground mt-1">Detailed history of all tablet interactions.</p>
+          <p className="text-muted-foreground mt-1">History of AAC communications, ABA lesson responses, and game rounds from the child tablet.</p>
         </div>
       </div>
 

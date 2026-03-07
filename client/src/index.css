@@ -9,38 +9,42 @@
     --font-display: 'Fredoka', sans-serif;
     --font-sans: 'Nunito', sans-serif;
 
-    /* Base Colors - Playful and Accessible */
-    --background: 210 33% 98%;
-    --foreground: 222 47% 15%;
+    /* Blue & white schematic – clean, trustworthy. Accessible contrast. */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
     
-    /* Playful Primary - Vibrant Blue */
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary – light blue (trust, calm, accessible) */
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
     
-    /* Secondary - Sunny Yellow for high contrast */
-    --secondary: 45 93% 55%;
-    --secondary-foreground: 24 10% 10%;
+    /* Secondary – emerald (growth, positive action) */
+    --secondary: 160 84% 39%;
+    --secondary-foreground: 0 0% 100%;
     
-    --muted: 210 40% 90%;
-    --muted-foreground: 215 16% 40%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
     
-    /* Accent - Bright Green for positive actions */
-    --accent: 142 71% 45%;
-    --accent-foreground: 144 100% 11%;
+    /* Accent – slate (professional, analytics) */
+    --accent: 215 28% 17%;
+    --accent-foreground: 0 0% 100%;
     
-    /* Destructive - Soft Red for distress/refusal */
-    --destructive: 346 84% 60%;
-    --destructive-foreground: 355 100% 97%;
+    /* Destructive – clear red for refusal/stop */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 214 32% 88%;
-    --input: 214 32% 88%;
-    --ring: 221 83% 53%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
     
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 15%;
+    --card-foreground: 222 47% 11%;
     --card-border: 214 32% 91%;
 
     --radius: 1rem;
+  }
+
+  .bg-hero {
+    background: hsl(var(--background));
   }
 
   .dark {
@@ -66,11 +70,11 @@
 
   /* Theme: Calm Mode (can be toggled by adding .theme-calm to a wrapper) */
   .theme-calm {
-    --background: 190 30% 96%;
-    --primary: 185 40% 50%;
-    --secondary: 210 30% 70%;
-    --accent: 150 30% 55%;
-    --destructive: 350 40% 65%;
+    --background: 190 22% 96%;
+    --primary: 172 38% 38%;
+    --secondary: 22 35% 45%;
+    --accent: 208 38% 44%;
+    --destructive: 0 55% 52%;
   }
 }
 
@@ -91,24 +95,24 @@
 /* Custom Utilities for Tablet UI */
 @layer utilities {
   .glass-card {
-    @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-xl shadow-black/5;
+    @apply bg-white/80 backdrop-blur-xl border border-white/60 shadow-xl shadow-black/5;
   }
   .dark .glass-card {
     @apply bg-black/40 border-white/10 shadow-black/20;
   }
-  
+
   .tablet-button-press {
     @apply transition-transform active:scale-95 duration-100;
   }
-  
+
   .bg-grid-pattern {
     background-size: 40px 40px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   }
-  
+
   .dark .bg-grid-pattern {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   }
 }

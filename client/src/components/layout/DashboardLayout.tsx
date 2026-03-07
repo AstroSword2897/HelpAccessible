@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { LayoutDashboard, Settings, Activity, TabletSmartphone, Menu, X } from "lucide-react";
+import { LayoutDashboard, Settings, Activity, TabletSmartphone, Menu, X, ClipboardList } from "lucide-react";
 import { useState } from "react";
 
 interface DashboardLayoutProps {
@@ -14,6 +14,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const navItems = [
     { name: "Overview", path: "/dashboard", icon: LayoutDashboard },
     { name: "Analytics", path: "/dashboard/analytics", icon: Activity },
+    { name: "Skill Assessment", path: "/assessment", icon: ClipboardList },
     { name: "Configuration", path: "/dashboard/config", icon: Settings },
   ];
 
@@ -24,9 +25,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         <div className="p-6 border-b">
           <Link href="/" className="flex items-center gap-2 cursor-pointer">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-display font-bold text-xl">C</span>
+              <span className="text-primary-foreground font-display font-bold text-xl">A</span>
             </div>
-            <h1 className="font-display font-bold text-xl text-foreground">CommuBuddy</h1>
+            <h1 className="font-display font-bold text-xl text-foreground">AuXel</h1>
           </Link>
         </div>
         <nav className="flex-1 p-4 space-y-2">
@@ -53,7 +54,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         <div className="p-4 border-t">
           <Link 
             href="/child" 
-            className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-accent to-accent/80 text-accent-foreground font-semibold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
+            className="flex items-center gap-3 px-4 py-3 rounded-xl bg-accent text-accent-foreground font-semibold shadow-sm hover:bg-accent/90 transition-all hover:-translate-y-0.5"
           >
             <TabletSmartphone className="w-5 h-5" />
             Launch Tablet
@@ -64,8 +65,8 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-card border-b flex items-center justify-between px-4 z-50">
         <Link href="/" className="font-display font-bold text-lg flex items-center gap-2">
-          <div className="w-6 h-6 rounded bg-primary flex items-center justify-center text-primary-foreground text-sm">C</div>
-          CommuBuddy
+          <div className="w-6 h-6 rounded bg-primary flex items-center justify-center text-primary-foreground text-sm">A</div>
+          AuXel
         </Link>
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2">
           {isMobileMenuOpen ? <X /> : <Menu />}

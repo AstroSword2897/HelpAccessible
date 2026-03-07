@@ -41,14 +41,39 @@ export default function Overview() {
   }, {} as Record<string, number>);
   
   const pieData = Object.entries(intentCounts).map(([name, value], index) => ({
-    name, value, fill: ['#4f46e5', '#ef4444', '#f59e0b', '#10b981'][index % 4]
+    name, value, fill: ['hsl(172 45% 42%)', 'hsl(0 65% 55%)', 'hsl(22 45% 48%)', 'hsl(208 45% 48%)'][index % 4]
   })).sort((a,b) => b.value - a.value).slice(0, 4);
+
+  const now = new Date();
+  const todayKey = format(now, "MMM dd");
+  const yesterdayKey = format(subDays(now, 1), "MMM dd");
+  const todayInteractions = (logs || []).filter(
+    (log) => format(new Date(log.createdAt || Date.now()), "MMM dd") === todayKey,
+  ).length;
+  const yesterdayInteractions = (logs || []).filter(
+    (log) => format(new Date(log.createdAt || Date.now()), "MMM dd") === yesterdayKey,
+  ).length;
+  const interactionTrend =
+    yesterdayInteractions === 0
+      ? todayInteractions > 0
+        ? "New activity today"
+        : "No activity yet"
+      : `${todayInteractions - yesterdayInteractions >= 0 ? "+" : ""}${todayInteractions - yesterdayInteractions} vs yesterday`;
+  const communicationTrend = communicationLogs.length
+    ? `${communicationLogs.length} communication events logged`
+    : "Waiting for the first communication";
+  const promptTrend = promptLogs.length
+    ? `${promptLogs.length} lesson actions recorded`
+    : "No lessons completed yet";
+  const lastActiveTrend = logs?.[0]
+    ? format(new Date(logs[0].createdAt || Date.now()), "MMM d")
+    : "No sessions yet";
 
   return (
     <DashboardLayout>
       <div className="mb-8">
         <h1 className="text-3xl font-display font-bold text-foreground">Dashboard Overview</h1>
-        <p className="text-muted-foreground mt-1">Welcome back. Here's how {profile?.name || 'your child'} is doing today.</p>
+        <p className="text-muted-foreground mt-1">Session and communication activity for {profile?.name || 'your child'} — AAC use, ABA practice, and engagement.</p>
       </div>
 
       {/* KPI Cards */}
@@ -57,25 +82,25 @@ export default function Overview() {
           title="Total Interactions" 
           value={logs?.length || 0} 
           icon={<Activity className="text-primary w-6 h-6" />}
-          trend="+12% from yesterday"
+          trend={interactionTrend}
         />
         <StatCard 
           title="Communications" 
           value={communicationLogs.length} 
           icon={<MessageSquare className="text-accent w-6 h-6" />}
-          trend="Active"
+          trend={communicationTrend}
         />
         <StatCard 
           title="Prompts Completed" 
           value={promptLogs.length} 
           icon={<Target className="text-secondary w-6 h-6" />}
-          trend="Keep it up"
+          trend={promptTrend}
         />
         <StatCard 
           title="Last Active" 
           value={logs?.[0] ? format(new Date(logs[0].createdAt || Date.now()), 'h:mm a') : 'N/A'} 
           icon={<Clock className="text-muted-foreground w-6 h-6" />}
-          trend="Today"
+          trend={lastActiveTrend}
         />
       </div>
 
